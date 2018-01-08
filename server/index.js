@@ -6,6 +6,7 @@ const session = require('express-session');
 const massive = require('massive');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+const mainCtrl = require('./controllers/mainCtrl');
 
 massive(process.env.CONNECTION_STRING)
     .then(db => {
@@ -34,7 +35,7 @@ passport.use(new Auth0Strategy({
     domain: process.env.AUTH_DOMAIN,
     clientSecret: process.env.CLIENT_SECRET,
     clientID: process.env.CLIENT_ID,
-    callbackURL: '/auth'
+    callbackURL: '/login'
 },
 (accessToken, refreshToken, extraParams, profile, done) => {
     app.get('db')
@@ -55,9 +56,9 @@ passport.use(new Auth0Strategy({
 passport.serializeUser((user, done) => done(null, user))
 passport.deserializeUser((user, done) => done(null, user))
 
-app.get('/auth', passport.authenticate('auth0', {
+app.get('/login', passport.authenticate('auth0', {
     successRedirect: 'http://localhost:3000/',
-    failureRedirect: 'http://localhost:3000/auth'})
+    failureRedirect: 'http://localhost:3000/login'})
 );
 
 app.get('/api/me', (req, res, next) => {
