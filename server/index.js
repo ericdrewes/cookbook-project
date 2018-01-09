@@ -6,7 +6,9 @@ const session = require('express-session');
 const massive = require('massive');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
-const mainCtrl = require('./controllers/mainCtrl');
+const recipeController = require('./controllers/recipeController');
+const favoriteController = require('./controllers/favoriteController')
+
 
 massive(process.env.CONNECTION_STRING)
     .then(db => {
@@ -78,6 +80,13 @@ app.get('/api/test', (req, res) => {
       
 })
 
-app.listen(process.env.PORT || 3001, () => {
+
+
+app.post('/api/test', recipeController.create)
+app.get('/api/test', recipeController.getRecipes)
+
+
+
+app.listen(process.env.PORT || 3000, () => {
     console.log(`Listening on port: ${process.env.PORT || 3001}`)
 })

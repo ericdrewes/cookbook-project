@@ -4,7 +4,7 @@ module.exports = {
         const {recipe_name, description} = req.body;
 
         db
-            .create_recipe([recipe_name, description])
+            .create_recipe()
             .then(() => res.status(200).json())
             .catch(console.log);
     },

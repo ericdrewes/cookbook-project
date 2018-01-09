@@ -1,0 +1,30 @@
+
+    
+.recipes {
+   border: solid;
+    width: 10vw;
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+    
+}
+
+.recipewrap {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.recipe_data{
+    text-align: center;
+    margin: 0, auto;
+}
+
+
+
