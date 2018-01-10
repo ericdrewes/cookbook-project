@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Favorites from '../Favorites/Favorites'
 
 import './Recipes.css';
 
@@ -9,6 +10,8 @@ export default class Recipes extends Component {
 
   constructor(props) {
     super(props);
+
+
     this.state = {
       recipeID: props.match.params.id,
       searchFilter: "matches",
@@ -39,6 +42,7 @@ export default class Recipes extends Component {
                 <img src={this.state.recipe.images ? this.state.recipe.images[0].hostedLargeUrl : " "} />
                 <p className="details-description">{this.state.recipe.ingredientLines}</p>
             </div>
+            <Favorites recipeID={this.state.recipe.id}/>
             <Link to="/">
             <button className='back-to-home'>
               <h3 > Return to Home Page</h3>
