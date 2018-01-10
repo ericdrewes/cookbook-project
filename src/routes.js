@@ -11,10 +11,10 @@ import Search from './components/Search/Search';
 export default (
     <Switch>
         <Route exact path = '/' component={Home} />
-        <Route path = '/addRecipe' component={addRecipe} />
-        <Route path = '/Login' component={Login} />
-        <Route path = '/Profile' component={Profile} />
-        <Route path = '/Recipes' component={Recipes} />
-        <Route path = '/Search' component = {Search} />
+        <Route path = '/addrecipe' component={addRecipe} />
+        <Route path = '/login' component={Login} />
+        <Route path = '/profile' component={Profile} />
+        <Route path = '/recipes/:id' component={Recipes} />
+        <Route path = '/search' component = {Search} />
     </Switch>
 )

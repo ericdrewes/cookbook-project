@@ -1,0 +1,18 @@
+.search_container{
+    text-align: center;
+}
+
+
+
+.recipe_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+h3 {
+    text-align: center;
+}
+
+

@@ -10,6 +10,7 @@ export default class Home extends Component {
 
     this.state = {
       recipes: []
+     
     };
   }
 
@@ -28,16 +29,21 @@ export default class Home extends Component {
       
     const recipes = this.state.recipes.map((recipe, i) => (
         <div key={i} className='recipes'>
+          <Link to={`/recipes/${recipe.id}`}>
             <div>{recipe.sourceDisplayName}</div>
             <img src={recipe.imageUrlsBySize[90]} />
+          </Link>
         </div>
       
     ));
     return (
         <header>
         <div className='recipe_data'>
-            <h1>Popular Recipes</h1>
+            <h1>RadRecipies.com </h1>
+            
+            <h3>Popular Recipes</h3>
             <div className='recipewrap'>{recipes}</div>
+            <span>powered by Yummly</span>
         </div>
         </header>
     );
