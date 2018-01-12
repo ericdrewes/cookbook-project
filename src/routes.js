@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 import Home from './components/Home/Home';
-import addRecipe from './components/addRecipe/addRecipe';
+import addRecipe from './components/addRecipes/addRecipes';
 import Login from './components/Login/Login';
 import Profile from './components/Profile/Profile';
 import Recipes from './components/Recipes/Recipes';

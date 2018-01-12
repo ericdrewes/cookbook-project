@@ -4073,9 +4073,9 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-massive@^4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/massive/-/massive-4.6.1.tgz#5cc1106d78a379c957f01c46ad818c214f59aaf5"
+massive@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/massive/-/massive-4.6.2.tgz#949b2b5c5e5fac9e9fb72bf356c6ca413744d227"
   dependencies:
     commander "~2.12.0"
     glob "~7.1.1"

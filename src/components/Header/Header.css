@@ -36,33 +36,3 @@ ul {
   align-items: center;
 }
 
-.hide {
-  display: flex;
-  background: #feca30;
-  border-radius: 10px;
-  position: flexend;
-  height: 50px;
-  width: 50px;
-  margin-right: 5vw;
-}
-
-@media (max-width: 950px) {
-  .header-center {
-    display: none;
-  }
-  .hide {
-    display: inline;
-  }
-  .header-right {
-    font-size: 25px;
-  }
-}
-
-@media (min-width: 900px) {
-  .header-center {
-    display: inline;
-  }
-  .hide {
-    display: none;
-  }
-}

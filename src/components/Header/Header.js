@@ -8,16 +8,12 @@ export default class Header extends Component {
     return (
       <div className="header">
         <Link to='/'><span className="navbar">Home</span></Link>
-        <span className="navbar">Profile</span>
-        <span className="navbar">About</span>
         <Link to='/search'><span className="navbar">Search</span></Link>
+        <Link to='/profile'><span className="navbar">Profile</span></Link>
+        
+        <a href="http://localhost:3001/login"><span className="login">Login</span></a>
 
-        <span className="login">Login</span>
-
-        <img
-          className="hide"
-          src="http://www.lakewoodcollege.edu/images/hamburger.png"
-        />
+       
       </div>
     );
   }

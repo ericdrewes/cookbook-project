@@ -1,1 +1,1 @@
-select * from favorite_recipes where id = $1;
+select * from favorite_recipes where authid = $1;

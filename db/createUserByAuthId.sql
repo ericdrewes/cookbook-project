@@ -1,1 +1,1 @@
-insert into users(authid, name) values ($1, $2) returning authid, name;
+insert into users(authid, username) values ($1, $2) returning authid, username;

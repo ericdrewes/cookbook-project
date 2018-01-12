@@ -1,38 +1,41 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default class Profile extends Component {
-    constructor(){
-        super()
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            // recipeID: props.match.params.id,
-            // searchFilter: "matches",
-            // recipes:[]
-        };
-    }
+    this.state = {
+      userID: this.props.authID,
+      recipe: []
+    };
+  }
 
-    handleFavorites(){
-        axios
-            .get(
-                `http://api.yummly.com/v1/api/recipe/${
-                    this.state.recipeID
-                  }?_app_id=b31967e8&_app_key=aa5e272aeecc1ebff7f5a6003d03c0fb`
-            ) 
-            .then(res => {
-                console.log(res.data);
-                this.setState({profile: res.data})
-            })
-    }
+  componentDidMount() {
+    axios
+      .get(`/api/favorites`)
+      .then(res => {
+        console.log(res.data);
+        this.setState({ recipe: res.data });
+      })
+      .catch(err => console.log(err));
+  }
 
-        render(){
-            return(
-                <div>
-                    
-                    <h3>Profile</h3>
-                    
-                </div>
-            )
-        }
+  render() {
+    return (
+      <div>
+        <h3>Profile</h3>
+        <div>
+          {this.state.recipe.map((x, i) => {
+            return <h1 
+                        key={i}>{x.id}
+                    </h1> &&
+             <h1>
+            {x.recipe_id}</h1>;
+          })}
+        </div>
+      </div>
+    );
+  }
 }

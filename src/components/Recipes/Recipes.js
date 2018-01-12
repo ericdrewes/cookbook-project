@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Favorites from '../Favorites/Favorites'
+import Favorites from "../Favorites/Favorites";
 
-import './Recipes.css';
+import "./Recipes.css";
 
 export default class Recipes extends Component {
   //     // const {id, recipeName, ingredients, smallImageUrls} = recipe
@@ -11,11 +11,12 @@ export default class Recipes extends Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       recipeID: props.match.params.id,
       searchFilter: "matches",
-      recipe: {}
+      recipe: {},
+      images: [],
+      name: ""
     };
   }
 
@@ -28,26 +29,32 @@ export default class Recipes extends Component {
       )
       .then(res => {
         console.log(res.data);
-        this.setState({ recipe: res.data });
+        let { name, images } = res.data;
+        this.setState({ recipe: res.data, name, images });
       });
   }
   render() {
-    console.log(this.state.recipe.name);
+    const { name, id } = this.state.recipe;
+    let img = this.state.images.length
+      ? this.state.images[0].hostedLargeUrl
+      : " ";
     return (
       <div>
         <h1>Recipes</h1>
         <div className="details">
-                <h3 className="details-name">{this.state.recipe.name}</h3>
-            <div className="recipe-image">
-                <img src={this.state.recipe.images ? this.state.recipe.images[0].hostedLargeUrl : " "} />
-                <p className="details-description">{this.state.recipe.ingredientLines}</p>
-            </div>
-            <Favorites recipeID={this.state.recipe.id}/>
-            <Link to="/">
-            <button className='back-to-home'>
-              <h3 > Return to Home Page</h3>
+          <h3 className="details-name">{name}</h3>
+          <div className="recipe-image">
+            <img src={img} />
+            <p className="details-description">
+              {this.state.recipe.ingredientLines}
+            </p>
+          </div>
+          <Favorites id={id} name={name} img={img} />
+          <Link to="/">
+            <button className="back-to-home">
+              <h3> Return to Home Page</h3>
             </button>
-            </Link>
+          </Link>
         </div>
       </div>
     );

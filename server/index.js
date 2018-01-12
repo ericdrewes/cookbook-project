@@ -57,7 +57,7 @@ passport.use(
             return done(null, response[0]);
           }
         });
-      return done(null, profile);
+      // return done(null, profile);
     }
   )
 );
@@ -69,7 +69,7 @@ app.get(
   "/login",
   passport.authenticate("auth0", {
     successRedirect: "http://localhost:3000/",
-    failureRedirect: "http://localhost:3000/login"
+    failureRedirect: "http://localhost:3001/login"
   })
 );
 
@@ -92,6 +92,8 @@ app.get("/api/test", (req, res) => {
 
 app.post("/api/test", recipeController.create);
 app.get("/api/test", recipeController.getRecipes);
+app.get("/api/favorites", favoriteController.getFavorite);
+app.post("/api/favorites", favoriteController.saveFavorite);
 
 app.listen(process.env.PORT || 3001, () => {
   console.log(`Listening on port: ${process.env.PORT || 3001}`);
