@@ -37,6 +37,7 @@ export default class Home extends Component {
       
     ));
     return (
+      <body>
         <header>
         <div className='recipe_data'>
             <h1>RadRecipies.com </h1>
@@ -46,6 +47,7 @@ export default class Home extends Component {
             <span>powered by Yummly</span>
         </div>
         </header>
+      </body>
     );
   }
 }

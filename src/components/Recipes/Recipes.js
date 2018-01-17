@@ -52,7 +52,7 @@ export default class Recipes extends Component {
           <Favorites id={id} name={name} img={img} />
           <Link to="/">
             <button className="back-to-home">
-              <h3> Return to Home Page</h3>
+              <p> Return to Home Page</p>
             </button>
           </Link>
         </div>

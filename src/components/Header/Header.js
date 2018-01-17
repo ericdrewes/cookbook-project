@@ -6,6 +6,7 @@ import "./Header.css";
 export default class Header extends Component {
   render() {
     return (
+      
       <div className="header">
         <Link to='/'><span className="navbar">Home</span></Link>
         <Link to='/search'><span className="navbar">Search</span></Link>

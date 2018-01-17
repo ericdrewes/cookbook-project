@@ -90,7 +90,7 @@ app.get("/api/test", (req, res) => {
     .catch(console.log);
 });
 
-app.post("/api/test", recipeController.create);
+app.post("/api/addrecipe", recipeController.create);
 app.get("/api/test", recipeController.getRecipes);
 app.get("/api/favorites", favoriteController.getFavorite);
 app.post("/api/favorites", favoriteController.saveFavorite);

@@ -1,7 +1,7 @@
 module.exports = {
     create: (req, res, next) => {
         const db = req.app.get('db');
-        const {recipe_name, description} = req.body;
+        const {recipe_name, description, imageUrl} = req.body;
 
         db
             .create_recipe()
