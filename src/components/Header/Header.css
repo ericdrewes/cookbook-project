@@ -1,38 +1,26 @@
-ul {
+/* ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 5px;
-}
+} */
 
-.navbar {
-  font-size: 15px;
-  margin: 0 5px;
-}
+
 
 .header {
-  padding-top: 2vh;
+  /* padding-top: 2vh; */
+  padding: 2vh;
   width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-image: url('https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1012309/1360/906/m1/fpnw/wm1/a27bvookixozdsqnhordaopwtkx71734wmxbvbz4hzf3nhxmvnbfmmzx7naehwg9-.jpg?1456016293&s=86e8b00386c3b1a55324ed21019ece2c');  
 }
 
 .login {
-    
   position: absolute;
   right: 5vw;
   float: right;
 }
 
-.header-center {
-  width: 100vw;
-  height: 15vh;
-  padding: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: red;
-  align-items: center;
-}
 

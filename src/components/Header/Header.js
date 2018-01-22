@@ -8,9 +8,7 @@ export default class Header extends Component {
     return (
       
       <div className="header">
-        <Link to='/'><span className="navbar">Home</span></Link>
-        <Link to='/search'><span className="navbar">Search</span></Link>
-        <Link to='/profile'><span className="navbar">Profile</span></Link>
+          <h1>Rad Recipies</h1>
         
         <a href="http://localhost:3001/login"><span className="login">Login</span></a>
 

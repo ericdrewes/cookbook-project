@@ -30,6 +30,7 @@ export default class Recipes extends Component {
       .then(res => {
         console.log(res.data);
         let { name, images } = res.data;
+        console.log
         this.setState({ recipe: res.data, name, images });
       });
   }
@@ -44,14 +45,16 @@ export default class Recipes extends Component {
         <div className="details">
           <h3 className="details-name">{name}</h3>
           <div className="recipe-image">
-            <img src={img} />
+            <img className="img" 
+                 style={{height: 300, width: 500}}
+                 src={img} />
             <p className="details-description">
               {this.state.recipe.ingredientLines}
             </p>
           </div>
           <Favorites id={id} name={name} img={img} />
-          <Link to="/">
-            <button className="back-to-home">
+          <Link to="/" className="back-to-home">
+            <button >
               <p> Return to Home Page</p>
             </button>
           </Link>

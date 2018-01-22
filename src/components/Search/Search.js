@@ -57,8 +57,9 @@ export default class Search extends Component {
               </div>
             );
           })}
-          <span>powered by Yummly</span>
+          
         </div>
+        <div>powered by Yummly</div>
       </div>
     );
   }

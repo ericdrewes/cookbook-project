@@ -40,9 +40,7 @@ export default class Home extends Component {
       <body>
         <header>
         <div className='recipe_data'>
-            <h1>RadRecipies.com </h1>
-            
-            <h3>Popular Recipes</h3>
+            <h3>Some Popular Recipes:</h3>
             <div className='recipewrap'>{recipes}</div>
             <span>powered by Yummly</span>
         </div>

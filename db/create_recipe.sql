@@ -1,1 +1,1 @@
-insert into user_recipes(recipe_name, description, imageUrl) values ('spaghetti', 'meatballs and marinara');
+insert into favorite_recipes(authid, recipe_name, description, img) values (${authid}, ${recipe_name}, ${description}, ${img})

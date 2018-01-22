@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import axios from 'axios';
+
+import './addRecipes.css';
 
 export default class addRecipe extends Component {
   constructor(props) {
@@ -9,34 +11,74 @@ export default class addRecipe extends Component {
     this.state = {
         recipe_name: '',
         description: '',
-        image_url: ''
+        img: ''
     }
+    this.createRecipe = this.createRecipe.bind(this);
+    this.updateRecipeName = this.updateRecipeName.bind(this);
+    this.updateRecipeDescription = this.updateRecipeDescription.bind(this);
+    this.updateRecipeImg = this.updateRecipeImg.bind(this);
+  }
+
+  updateRecipeName(val){
+    this.setState({recipe_name: val})
+  }
+
+  updateRecipeDescription(val){
+    this.setState({description: val})
+  }
+
+  updateRecipeImg(val){
+    this.setState({image_url: val})
   }
 
   createRecipe(){
     axios
-      .post('/api/addrecipes')
+      .post('/api/addrecipe', 
+      {
+        recipe_name: this.state.recipe_name, 
+        description: this.state.description, 
+        img: this.state.image_url
+      })
       .then(res => {
         console.log(res.data);
         this.setState({
           recipe_name: res.data,
           description: res.data,
-          image_url: res.data
+          img: res.data
         })
       }).catch(err => console.log(err));
   }
+
   render() {
     return (
       <div>
-        <h1>add Favorite</h1>
-        <div className="search_container">
-          <h1>Search</h1>
-          <input
-            type="text"
-            onChange={e => this.updateSearchText(e.target.value)}
-          />
-          <button onClick={this.handleSearch}>Enter </button>
-        </div>
+        <h1>Add New Favorite Recipe</h1>
+          <div className = "recipe-name">
+            <h3>New Recipe:</h3>
+            <textarea 
+              type="text"
+              onChange={e => this.updateRecipeName(e.target.value)}
+            />
+          </div>
+
+          <div className = "recipe-description">
+            <h3>Recipe Description:</h3>
+            <textarea 
+              className="rec-description"
+              type="text"
+              onChange={e => this.updateRecipeDescription(e.target.value)}
+            />
+          </div>
+
+          <div className = 'recipe-img'>
+            <h3>Recipe Image:</h3>
+            <textarea
+              type="text"
+              onChange={e => this.updateRecipeImg(e.target.value)}
+            />
+            <button onClick={this.createRecipe}>Enter</button>
+          </div>
+
       </div>
     );
   }

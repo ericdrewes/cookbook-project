@@ -11,34 +11,56 @@
   box-shadow: 5px 5px 2px 0px rgb(0, 0, 0);
 }
 
+.recipes:hover {
+  background-color: rgba(255, 255, 255, 0.459);
+}
+
 .recipewrap {
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   color: white;
+}
 
-  
+.recipewrap:hover {
+  color: black;
 }
 
 .recipe_data {
   text-align: center;
   margin: 0, auto;
+  color: white;
 }
 
 body {
-  background-image: url('https://hdwallsource.com/img/2015/9/food-wallpaper-47145-48661-hd-wallpapers.jpg');
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-  
+  background-color: rgba(184, 23, 23, 0.808);
 }
 
-
-
-h1, h3, span, div {
-  color: #65AFFF;
+span {
+  color: white;
+  /* text-shadow: 2px 2px black; */
+  font-size: 20px;
 }
 
+h3, div {
+  color: white;
+  text-shadow: .5px .5px black;
+}
 
+h1 {
+  color: white;
+  text-shadow: 2px 2px black;
+  font-size: 50px;
+}
+
+@media (max-width: 450px) {
+  div {
+    font-size: 10px;
+  }
+  img {
+    height: 40px;
+    width: 40px;
+  }
+}
