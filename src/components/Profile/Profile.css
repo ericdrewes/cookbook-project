@@ -2,5 +2,30 @@
 
 .recipe_border{
     border: solid;
+    width: 450px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px 0px rgb(0, 0, 0);    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
 
 }
+
+.profile-flex
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: stretch;
+    }
+
+    @media (max-width: 450px) {
+        .profile-img {
+          height: 40px;
+          width: 40px;
+        }
+      }
