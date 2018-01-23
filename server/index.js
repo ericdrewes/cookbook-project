@@ -95,6 +95,7 @@ app.get("/api/test", recipeController.getRecipes);
 app.get("/api/favorites", favoriteController.getFavorite);
 app.get("/api/readspecific/:id", favoriteController.readSpecific);
 app.post("/api/favorites", favoriteController.saveFavorite);
+app.delete("/api/favorites/:id", favoriteController.deleteFavorite);
 app.get("/api/checkAuth", (req, res) => res.json(req.user));
 
 app.listen(process.env.PORT || 3001, () => {

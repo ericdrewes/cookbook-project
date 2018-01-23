@@ -18,14 +18,25 @@ module.exports = {
       .save_favorite_recipes(data)
       .then(favorite => res.status(200).json(favorite))
       .catch(console.log);
-  }, 
-  
+  },
+
   readSpecific: (req, res, next) => {
-    const db = req.app.get("db")
+    const db = req.app.get("db");
 
     db
       .read_specific(req.params)
       .then(specific => res.status(200).json(specific))
+      .catch(console.log);
+  },
+
+  deleteFavorite: (req, res, next) => {
+    console.log(req.params);
+    const db = req.app.get("db");
+
+    console.log(req.user);
+    db
+      .delete_favorite({ id: req.params.id, authid: req.user.authid })
+      .then(favorite => res.status(200).json(favorite))
       .catch(console.log);
   }
 };

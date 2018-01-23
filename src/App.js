@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 import "./App.css";
 
 import Header from "./components/Header/Header";
 import routes from "./routes";
-
 import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
 import RaisedButton from "material-ui/RaisedButton";
@@ -13,7 +12,10 @@ import RaisedButton from "material-ui/RaisedButton";
 export default class sideDrawer extends Component {
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = {
+      open: false,
+      recipe: []
+    };
   }
 
   handleToggle = () => this.setState({ open: !this.state.open });
@@ -26,11 +28,12 @@ export default class sideDrawer extends Component {
         <span className="nostyle">
           <RaisedButton label="Nav Bar" onClick={this.handleToggle} />
         </span>
-        <Drawer 
+        <Drawer
           docked={false}
           width={200}
           open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}>
+          onRequestChange={open => this.setState({ open })}
+        >
           <Link to="/">
             <MenuItem onClick={this.handleClose}> Home </MenuItem>
           </Link>

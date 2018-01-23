@@ -8,7 +8,9 @@ export default class Header extends Component {
     return (
       
       <div className="header">
-          <h1>Rad Recipies</h1>
+          <Link to='/'> 
+            <h1>Rad Recipies</h1>
+          </Link>
         
         <a href="http://localhost:3001/login"><span className="login">Login</span></a>
 
