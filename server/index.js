@@ -93,8 +93,9 @@ app.get("/api/test", (req, res) => {
 app.post("/api/addrecipe", recipeController.create);
 app.get("/api/test", recipeController.getRecipes);
 app.get("/api/favorites", favoriteController.getFavorite);
-app.get('/api/readspecific/:id', favoriteController.readSpecific);
+app.get("/api/readspecific/:id", favoriteController.readSpecific);
 app.post("/api/favorites", favoriteController.saveFavorite);
+app.get("/api/checkAuth", (req, res) => res.json(req.user));
 
 app.listen(process.env.PORT || 3001, () => {
   console.log(`Listening on port: ${process.env.PORT || 3001}`);

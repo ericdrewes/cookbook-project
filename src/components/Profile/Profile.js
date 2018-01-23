@@ -27,7 +27,7 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        <h3>Favorited Recipes:</h3>
+        <h2>Favorited Recipes:</h2>
         <Link to="/addrecipes">
           <button>Add Recipe!</button>
         </Link>
@@ -35,7 +35,7 @@ export default class Profile extends Component {
           {this.state.recipe.map((x, i) => {
             console.log(x);
             return (
-              <h1>
+              <h3>
                 <div className="recipe_border">
                   <Link to={x.recipe_id ? `/recipes/${x.recipe_id}` : `/userRecipes/${x.id}`}>
                     <div>{x.recipe_name}</div>
@@ -45,7 +45,7 @@ export default class Profile extends Component {
                     />
                   </Link>
                 </div>
-              </h1>
+              </h3>
             );
           })}
         </div>

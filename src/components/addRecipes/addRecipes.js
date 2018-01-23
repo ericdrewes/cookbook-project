@@ -1,42 +1,41 @@
 import React, { Component } from "react";
 
-import axios from 'axios';
+import axios from "axios";
 
-import './addRecipes.css';
+import "./addRecipes.css";
 
 export default class addRecipe extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        recipe_name: '',
-        description: '',
-        img: ''
-    }
+      recipe_name: "",
+      description: "",
+      img: ""
+    };
     this.createRecipe = this.createRecipe.bind(this);
     this.updateRecipeName = this.updateRecipeName.bind(this);
     this.updateRecipeDescription = this.updateRecipeDescription.bind(this);
     this.updateRecipeImg = this.updateRecipeImg.bind(this);
   }
 
-  updateRecipeName(val){
-    this.setState({recipe_name: val})
+  updateRecipeName(val) {
+    this.setState({ recipe_name: val });
   }
 
-  updateRecipeDescription(val){
-    this.setState({description: val})
+  updateRecipeDescription(val) {
+    this.setState({ description: val });
   }
 
-  updateRecipeImg(val){
-    this.setState({image_url: val})
+  updateRecipeImg(val) {
+    this.setState({ image_url: val });
   }
-
-  createRecipe(){
+  re;
+  createRecipe() {
     axios
-      .post('/api/addrecipe', 
-      {
-        recipe_name: this.state.recipe_name, 
-        description: this.state.description, 
+      .post("/api/addrecipe", {
+        recipe_name: this.state.recipe_name,
+        description: this.state.description,
         img: this.state.image_url
       })
       .then(res => {
@@ -45,32 +44,45 @@ export default class addRecipe extends Component {
           recipe_name: res.data,
           description: res.data,
           img: res.data
-        })
-      }).catch(err => console.log(err));
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
+  componentDidMount() {
+    axios
+      .get("/api/checkAuth")
+      .then(
+        result =>
+          result.data
+            ? this.setState({ loggedIn: true })
+            : (window.location = "http://localhost:3001/login")
+      );
   }
 
   render() {
-    return (
-      <div>
-        <h1>Add New Favorite Recipe</h1>
-          <div className = "recipe-name">
+    if (this.state.loggedIn) {
+      return (
+        <div>
+          <h1>Add New Favorite Recipe</h1>
+          <div className="recipe-name">
             <h3>New Recipe:</h3>
-            <textarea 
+            <textarea
               type="text"
               onChange={e => this.updateRecipeName(e.target.value)}
             />
           </div>
 
-          <div className = "recipe-description">
+          <div className="recipe-description">
             <h3>Recipe Description:</h3>
-            <textarea 
+            <textarea
               className="rec-description"
               type="text"
               onChange={e => this.updateRecipeDescription(e.target.value)}
             />
           </div>
 
-          <div className = 'recipe-img'>
+          <div className="recipe-img">
             <h3>Recipe Image:</h3>
             <textarea
               type="text"
@@ -78,8 +90,10 @@ export default class addRecipe extends Component {
             />
             <button onClick={this.createRecipe}>Enter</button>
           </div>
-
-      </div>
-    );
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 }
