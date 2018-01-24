@@ -1,4 +1,10 @@
-
+.addRecipe{
+    background-color: transparent;
+    color:rgb(255, 255, 255);
+    border: solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px 0px rgb(0, 0, 0);  
+}
 
 .recipe-border{
     border: solid;
@@ -27,6 +33,11 @@
         align-content: stretch;
     }
 
+.profile-img{
+    width: 400px;
+    height: 250px;
+}
+
 .recipe-flex{
     display: flex;
     flex-direction: row;
@@ -45,7 +56,11 @@
 
     @media (max-width: 450px) {
         .profile-img {
-          height: 40px;
-          width: 40px;
+          height: 60px;
+          width: 60px;
+        }
+        .recipe-border{
+            height:100px;
+            width: 100px;
         }
       }

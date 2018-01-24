@@ -38,7 +38,7 @@ export default class Profile extends Component {
       <div>
         <h2>Favorited Recipes:</h2>
         <Link to="/addrecipes">
-          <button>Add Recipe!</button>
+          <button className="addRecipe">Add Recipe!</button>
         </Link>
         <div className="profile-flex">
           {this.state.recipe.map((x, i) => {
@@ -55,7 +55,6 @@ export default class Profile extends Component {
                     <div>{x.recipe_name}</div>
                     <img
                       className="profile-img"
-                      style={{ width: 400, height: 250 }}
                       src={x.img}
                     />
                   </Link>

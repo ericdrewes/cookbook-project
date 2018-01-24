@@ -14,6 +14,8 @@ export default class Home extends Component {
     };
   }
 
+
+
   componentDidMount() {
     axios
       .get(
@@ -30,8 +32,11 @@ export default class Home extends Component {
     const recipes = this.state.recipes.map((recipe, i) => (
         <div key={i} className='recipes'>
           <Link to={`/recipes/${recipe.id}`}>
-            <div>{recipe.sourceDisplayName}</div>
-            <img src={recipe.imageUrlsBySize[90]} />
+            <div className="display-name">{recipe.sourceDisplayName}</div>
+            <img 
+              className="home-img"
+              src={recipe.imageUrlsBySize[90]} 
+            />
           </Link>
         </div>
       
@@ -40,9 +45,9 @@ export default class Home extends Component {
       <body>
         <header>
         <div className='recipe_data'>
-            <h3>Some Popular Recipes:</h3>
+            <h3 className="home-title">Some Popular Recipes:</h3>
             <div className='recipewrap'>{recipes}</div>
-            <span>powered by Yummly</span>
+            
         </div>
         </header>
       </body>

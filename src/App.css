@@ -6,3 +6,12 @@ color: blue;
   text-shadow: 0;
 }
 
+.hamburger {
+  width:75px;
+  height: 75px;
+}
+
+footer{
+  position: absolute;
+  bottom: 5px;
+}

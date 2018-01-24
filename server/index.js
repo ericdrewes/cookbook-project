@@ -97,6 +97,7 @@ app.get("/api/readspecific/:id", favoriteController.readSpecific);
 app.post("/api/favorites", favoriteController.saveFavorite);
 app.delete("/api/favorites/:id", favoriteController.deleteFavorite);
 app.get("/api/checkAuth", (req, res) => res.json(req.user));
+// app.get("/api/login", (req, res) => req.logout()res.redirect('/'));
 
 app.listen(process.env.PORT || 3001, () => {
   console.log(`Listening on port: ${process.env.PORT || 3001}`);

@@ -1,5 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Acme|Anton|Baloo+Bhai|Kavivanar|Nothing+You+Could+Do|Righteous|Shrikhand');
+
+.main-header{
+  font-family: 'Righteous', cursive;
+  font-size: 60px;
+}
 
 
+.nostyle{
+  position: absolute;
+  right: 5vw;
+  top: 6vh;
+
+}
+
+.hamburger {
+  width:90px;
+  height: 90px;
+  background-color:transparent;
+  border-radius: 10px;
+}
 
 .header {
   /* padding-top: 2vh; */
@@ -8,14 +27,14 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-image: url('https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1012309/1360/906/m1/fpnw/wm1/a27bvookixozdsqnhordaopwtkx71734wmxbvbz4hzf3nhxmvnbfmmzx7naehwg9-.jpg?1456016293&s=86e8b00386c3b1a55324ed21019ece2c');
-  font-family: "Fjalla One",
+  background-image: url('http://www.justine-dietetique.com/ressources/bodyslider_9/bg2-bc3t.jpg');
+  width: 100vw;
+
 }
 
-.login {
-  position: absolute;
-  right: 5vw;
-  float: right;
+.header-quote {
+  font-family: 'Nothing You Could Do', cursive;
+  color: white;
 }
 
 
@@ -24,4 +43,18 @@ a {
   text-decoration: none
 }
 
+@media (max-width: 450px) {
+  .nostyle{
+    right: 2vw;
+    top: 2vh;
+  }
+  .hamburger {
+    height: 40px;
+    width: 40px;
+  }
+  img {
+    height: 40px;
+    width: 40px;
+  }
+}
 

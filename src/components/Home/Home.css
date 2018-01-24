@@ -11,6 +11,8 @@
   box-shadow: 5px 5px 2px 0px rgb(0, 0, 0);
 }
 
+
+
 .recipes:hover {
   background-color: rgba(255, 255, 255, 0.459);
 }
@@ -36,6 +38,16 @@
 
 body {
   background-color: rgba(184, 23, 23, 0.808);
+}
+
+
+.home-title{
+  font-family: 'Kavivanar', cursive;
+  font-style: bold;
+}
+
+.display-name{
+  font-family: 'Kavivanar', cursive;
 }
 
 span {

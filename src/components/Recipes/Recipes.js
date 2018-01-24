@@ -29,11 +29,11 @@ export default class Recipes extends Component {
       )
       .then(res => {
         console.log(res.data);
-        let { name, images } = res.data;
-        console.log
-        this.setState({ recipe: res.data, name, images });
+        let { name, images, url } = res.data;
+        this.setState({ recipe: res.data, name, images, url });
       });
   }
+
   render() {
     const { name, id } = this.state.recipe;
     let img = this.state.images.length
@@ -41,24 +41,30 @@ export default class Recipes extends Component {
       : " ";
     return (
       <div>
+   
         <h2>Recipe:</h2>
         <div className="details">
           <h3 className="details-name">{name}</h3>
           <div className="recipe-image">
             <img className="img" 
-                 style={{height: 300, width: 500}}
-                 src={img} />
+                 src={img}
+            />
             <p className="details-description">
+              {/* {this.state.recipe.attribution.html} */}
               {this.state.recipe.ingredientLines}
-              
+              <br/>
+              <div> 
+                Full Recipe:
+                <a href={this.state.recipe.source && this.state.recipe.source.sourceRecipeUrl}>{name}</a>
+              </div>
             </p>
           </div>
           <Favorites id={id} name={name} img={img} />
-          <Link to="/" className="back-to-home">
+          {/* <Link to="/" className="back-to-home">
             <button >
               <p> Return to Home Page</p>
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     );

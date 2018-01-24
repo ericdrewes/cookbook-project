@@ -33,7 +33,7 @@ export default class UserRecipes extends Component {
    console.log(this.state.recipe)
     return (
       <div>
-        <h1>User Recipe:</h1>
+        <h2>User Recipe:</h2>
         <div className="details">
           <h3 className="details-name">
             {this.state.recipe.recipe_name}
