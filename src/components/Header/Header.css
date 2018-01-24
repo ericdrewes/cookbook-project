@@ -8,7 +8,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-image: url('https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1012309/1360/906/m1/fpnw/wm1/a27bvookixozdsqnhordaopwtkx71734wmxbvbz4hzf3nhxmvnbfmmzx7naehwg9-.jpg?1456016293&s=86e8b00386c3b1a55324ed21019ece2c');  
+  background-image: url('https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1012309/1360/906/m1/fpnw/wm1/a27bvookixozdsqnhordaopwtkx71734wmxbvbz4hzf3nhxmvnbfmmzx7naehwg9-.jpg?1456016293&s=86e8b00386c3b1a55324ed21019ece2c');
+  font-family: "Fjalla One",
 }
 
 .login {
@@ -16,6 +17,8 @@
   right: 5vw;
   float: right;
 }
+
+
 
 a {
   text-decoration: none

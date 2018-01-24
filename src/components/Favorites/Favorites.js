@@ -28,7 +28,7 @@ export default class Favorites extends Component {
               console.log(res.data);
               this.setState({ recipe: res.data });
             })
-            .catch(err => console.log(err));
+            .catch(err => alert("Must Be Logged In"));
         }}
       >
         FAVORITE

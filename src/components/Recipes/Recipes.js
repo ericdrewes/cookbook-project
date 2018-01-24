@@ -41,7 +41,7 @@ export default class Recipes extends Component {
       : " ";
     return (
       <div>
-        <h1>Recipes</h1>
+        <h2>Recipe:</h2>
         <div className="details">
           <h3 className="details-name">{name}</h3>
           <div className="recipe-image">
@@ -50,6 +50,7 @@ export default class Recipes extends Component {
                  src={img} />
             <p className="details-description">
               {this.state.recipe.ingredientLines}
+              
             </p>
           </div>
           <Favorites id={id} name={name} img={img} />
