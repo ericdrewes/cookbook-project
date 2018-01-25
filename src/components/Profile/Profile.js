@@ -36,7 +36,7 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        <h2>Favorited Recipes:</h2>
+        <h2 className="profile-title">Favorited Recipes:</h2>
         <Link to="/addrecipes">
           <button className="addRecipe">Add Recipe!</button>
         </Link>
@@ -52,7 +52,7 @@ export default class Profile extends Component {
                         ? `/recipes/${x.recipe_id}`
                         : `/userRecipes/${x.id}`
                     }>
-                    <div>{x.recipe_name}</div>
+                    <div className="recipe-name">{x.recipe_name}</div>
                     <img
                       className="profile-img"
                       src={x.img}

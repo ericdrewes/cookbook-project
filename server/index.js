@@ -60,7 +60,11 @@ passport.use(
       // return done(null, profile);
     }
   )
+
+  
 );
+
+
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
@@ -72,6 +76,7 @@ app.get(
     failureRedirect: "http://localhost:3001/login"
   })
 );
+
 
 app.get("/api/me", (req, res, next) => {
   if (req.user) res.json(req.user);
@@ -97,7 +102,9 @@ app.get("/api/readspecific/:id", favoriteController.readSpecific);
 app.post("/api/favorites", favoriteController.saveFavorite);
 app.delete("/api/favorites/:id", favoriteController.deleteFavorite);
 app.get("/api/checkAuth", (req, res) => res.json(req.user));
-// app.get("/api/login", (req, res) => req.logout()res.redirect('/'));
+app.get("/logout", (req, res) => res.json(req.session.destroy()));
+
+
 
 app.listen(process.env.PORT || 3001, () => {
   console.log(`Listening on port: ${process.env.PORT || 3001}`);

@@ -4,6 +4,16 @@
     border: solid;
     border-radius: 10px;
     box-shadow: 5px 5px 2px 0px rgb(0, 0, 0);  
+    font-family: 'Montserrat', sans-serif;
+}
+
+.profile-title{
+    font-family: 'Montserrat', sans-serif;
+    font-style: bold;
+}
+
+.recipe-name{
+    font-family: 'Montserrat', sans-serif;
 }
 
 .recipe-border{

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Acme|Anton|Baloo+Bhai|Kavivanar|Nothing+You+Could+Do|Righteous|Shrikhand');
+@import url('https://fonts.googleapis.com/css?family=Acme|Anton|Baloo+Bhai|Kavivanar|Montserrat|Nothing+You+Could+Do|Righteous|Shrikhand');
 
 .main-header{
   font-family: 'Righteous', cursive;
@@ -14,7 +14,7 @@
 }
 
 .hamburger {
-  width:90px;
+  width:75px;
   height: 90px;
   background-color:transparent;
   border-radius: 10px;
