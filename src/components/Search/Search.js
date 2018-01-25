@@ -38,11 +38,13 @@ export default class Search extends Component {
       <div>
         <div className="search_container">
           <h1>Search</h1>
-          <input
-            type="text"
-            onChange={e => this.updateSearchText(e.target.value)}
-          />
-          <button onClick={this.handleSearch}>Enter </button>
+          <div className="search-flex">
+            <textarea
+              type="text"
+              onChange={e => this.updateSearchText(e.target.value)}
+            />
+            <button onClick={this.handleSearch}>Enter </button>
+          </div>
         </div>
 
         <h3>Popular Recipes</h3>
@@ -59,7 +61,7 @@ export default class Search extends Component {
           })}
           
         </div>
-        <div>powered by Yummly</div>
+      
       </div>
     );
   }

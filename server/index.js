@@ -17,6 +17,8 @@ massive(process.env.CONNECTION_STRING)
 
 const app = express();
 
+app.use( express.static( `${__dirname}/../build` ) );
+
 app.use(json());
 app.use(cors());
 app.use(
@@ -104,7 +106,10 @@ app.delete("/api/favorites/:id", favoriteController.deleteFavorite);
 app.get("/api/checkAuth", (req, res) => res.json(req.user));
 app.get("/logout", (req, res) => res.json(req.session.destroy()));
 
-
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 app.listen(process.env.PORT || 3001, () => {
   console.log(`Listening on port: ${process.env.PORT || 3001}`);

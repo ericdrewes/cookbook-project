@@ -5,6 +5,7 @@
     border-radius: 10px;
     box-shadow: 5px 5px 2px 0px rgb(0, 0, 0);  
     font-family: 'Montserrat', sans-serif;
+    border-width: 1px
 }
 
 .profile-title{
@@ -18,6 +19,7 @@
 
 .recipe-border{
     border: solid;
+    border-width: 1px;
     width: 450px;
     height: 300px;
     border-radius: 10px;
