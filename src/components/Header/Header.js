@@ -90,7 +90,7 @@ class Header extends Component {
         </Drawer>
 
         <Link to="/">
-          <h1 className="main-header">Rad Recipies</h1>
+          <h1 className="main-header">Rad Recipes</h1>
           <h2 className="header-quote">A Free Online Recipe Database</h2>
         </Link>
       </div>
