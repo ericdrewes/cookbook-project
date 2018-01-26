@@ -70,7 +70,7 @@ class Header extends Component {
           </Link>
 
           {!isLoggedIn ? (
-            <a href="159.89.152.32:3001/login" >
+            <a href="http://159.89.152.32:3001/login">
               <MenuItem onClick={this.handleClose}> Login </MenuItem>
             </a>
           ) : (
@@ -79,7 +79,7 @@ class Header extends Component {
                 this.handleClose();
                 this.setState({ isLoggedIn: false });
                 axios.get("/logout").then(() => {
-                  this.props.history.push('/')
+                  this.props.history.push("/");
                 });
               }}
             >
@@ -97,5 +97,5 @@ class Header extends Component {
     );
   }
 }
- 
+
 export default withRouter(Header);
