@@ -37,17 +37,21 @@ export default class Search extends Component {
     return (
       <div>
         <div className="search_container">
-          <h1>Search</h1>
+          <h1 className="search-h1">Search</h1>
           <div className="search-flex">
             <textarea
               type="text"
               onChange={e => this.updateSearchText(e.target.value)}
             />
-            <button onClick={this.handleSearch}>Enter </button>
+            <button 
+            className="search-recipe"
+            onClick={this.handleSearch}>Enter </button>
           </div>
         </div>
 
-        <h3>Popular Recipes</h3>
+        <h3
+        className="search-title"
+        >Popular Recipes:</h3>
         <div className="recipe_container">
           {this.state.recipes.map((recipe, i) => {
             return (
