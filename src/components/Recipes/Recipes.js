@@ -42,7 +42,7 @@ export default class Recipes extends Component {
     return (
       <div>
    
-        <h2>Recipe:</h2>
+        <h2 className="recipe-title">Recipe:</h2>
         <div className="details">
           <h3 className="details-name">{name}</h3>
           <div className="recipe-image">
@@ -53,7 +53,7 @@ export default class Recipes extends Component {
               {/* {this.state.recipe.attribution.html} */}
               {this.state.recipe.ingredientLines}
               <br/>
-              <div> 
+              <div className="full-recipe"> 
                 Full Recipe:
                 <a href={this.state.recipe.source && this.state.recipe.source.sourceRecipeUrl}>{name}</a>
               </div>

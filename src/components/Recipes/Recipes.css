@@ -17,6 +17,22 @@ h1 {
    align-items: center;
 }
 
+.full-recipe {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.details-description  {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.details-name{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.recipe-title{
+    font-family: 'Montserrat', sans-serif;
+}
+
 p {
     align-content: center;
 }
