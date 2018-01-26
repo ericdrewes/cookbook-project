@@ -70,7 +70,7 @@ class Header extends Component {
           </Link>
 
           {!isLoggedIn ? (
-            <a href="http://localhost:3001/login">
+            <a href="159.89.152.32:3001/login" >
               <MenuItem onClick={this.handleClose}> Login </MenuItem>
             </a>
           ) : (
