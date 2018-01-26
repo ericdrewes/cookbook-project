@@ -37,7 +37,7 @@ export default class Search extends Component {
     return (
       <div>
         <div className="search_container">
-          <h1 className="search-h1">Search</h1>
+          <h2 className="search-h2">Search</h2>
           <div className="search-flex">
             <textarea
               type="text"
