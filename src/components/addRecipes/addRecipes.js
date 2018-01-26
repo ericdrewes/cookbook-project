@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 
 import axios from "axios";
-
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "http://159.89.152.32:3001/"
+    : "http://localhost:3001";
 import "./addRecipes.css";
 
 export default class addRecipe extends Component {
@@ -56,7 +59,7 @@ export default class addRecipe extends Component {
         result =>
           result.data
             ? this.setState({ loggedIn: true })
-            : (window.location = "http://localhost:3001/login")
+            : (window.location = BASE_URL + "/login")
       );
   }
 

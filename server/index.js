@@ -8,6 +8,10 @@ const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 const recipeController = require("./controllers/recipeController");
 const favoriteController = require("./controllers/favoriteController");
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "http://159.89.152.32:3001/"
+    : "http://localhost:3001";
 
 massive(process.env.CONNECTION_STRING)
   .then(db => {
@@ -17,7 +21,7 @@ massive(process.env.CONNECTION_STRING)
 
 const app = express();
 
-app.use( express.static( `${__dirname}/../build` ) );
+app.use(express.static(`${__dirname}/../build`));
 
 app.use(json());
 app.use(cors());
@@ -62,11 +66,7 @@ passport.use(
       // return done(null, profile);
     }
   )
-
-  
 );
-
-
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
@@ -74,11 +74,10 @@ passport.deserializeUser((user, done) => done(null, user));
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "http://159.89.152.32:3001/",
-    failureRedirect: "http://159.89.152.32:3001/login"
+    successRedirect: BASE_URL,
+    failureRedirect: BASE_URL + "/login"
   })
 );
-
 
 app.get("/api/me", (req, res, next) => {
   if (req.user) res.json(req.user);
@@ -106,10 +105,10 @@ app.delete("/api/favorites/:id", favoriteController.deleteFavorite);
 app.get("/api/checkAuth", (req, res) => res.json(req.user));
 app.get("/logout", (req, res) => res.json(req.session.destroy()));
 
-const path = require('path')
-app.get('*', (req, res)=>{
-  res.sendFile(path.join(__dirname, '../build/index.html'));
-})
+const path = require("path");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 
 app.listen(process.env.PORT || 3001, () => {
   console.log(`Listening on port: ${process.env.PORT || 3001}`);
