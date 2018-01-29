@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import './Home.css';
-
+import "./Home.css";
 
 export default class Home extends Component {
   constructor() {
@@ -10,11 +9,8 @@ export default class Home extends Component {
 
     this.state = {
       recipes: []
-     
     };
   }
-
-
 
   componentDidMount() {
     axios
@@ -28,29 +24,21 @@ export default class Home extends Component {
   }
 
   render() {
-      
     const recipes = this.state.recipes.map((recipe, i) => (
-        <div key={i} className='recipes'>
-          <Link to={`/recipes/${recipe.id}`}>
-            <div className="display-name">{recipe.sourceDisplayName}</div>
-            <img 
-              className="home-img"
-              src={recipe.imageUrlsBySize[90]} 
-            />
-          </Link>
-        </div>
-      
+      <div key={i} className="recipes">
+        <Link to={`/recipes/${recipe.id}`}>
+          <div className="display-name">{recipe.sourceDisplayName}</div>
+          <img className="home-img" src={recipe.imageUrlsBySize[90]} />
+        </Link>
+      </div>
     ));
     return (
-      <body>
-        <header>
-        <div className='recipe_data'>
-            <h3 className="home-title">Some Popular Recipes:</h3>
-            <div className='recipewrap'>{recipes}</div>
-            
+      <header>
+        <div className="recipe_data">
+          <h3 className="home-title">Some Popular Recipes:</h3>
+          <div className="recipewrap">{recipes}</div>
         </div>
-        </header>
-      </body>
+      </header>
     );
   }
 }

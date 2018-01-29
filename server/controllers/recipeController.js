@@ -2,10 +2,10 @@ module.exports = {
   create: (req, res, next) => {
     const db = req.app.get("db");
     const { recipe_name, description, img } = req.body;
-    console.log(req.user);
+    console.log(req.body);
     db
       .create_recipe({ authid: req.user.authid, recipe_name, description, img })
-      .then(() => res.status(200).json())
+      .then(response => res.json(response))
       .catch(console.log);
   },
 
@@ -16,7 +16,5 @@ module.exports = {
       .read_recipes()
       .then(recipes => res.status(200).json(product))
       .catch(console.log);
-  },
-
-  
+  }
 };

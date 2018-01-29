@@ -1,1 +1,1 @@
-insert into favorite_recipes(authid, recipe_name, description, img) values (${authid}, ${recipe_name}, ${description}, ${img})
+insert into favorite_recipes(authid, recipe_name, description, img) values (${authid}, ${recipe_name}, ${description}, ${img}) RETURNING *;

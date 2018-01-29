@@ -26,3 +26,15 @@
 .rec-img {
     width: 500px;
 }
+
+.addrecipe-title{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rec-desc-title {
+    font-family: 'Montserrat', sans-serif;    
+}
+
+.recimg {
+    font-family: 'Montserrat', sans-serif;        
+}

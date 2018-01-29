@@ -3,12 +3,12 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import "./addRecipes.css";
+// import { BADQUERY } from "dns";
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "http://159.89.152.32:3001"
     : "http://localhost:3001";
-  
 
 export default class addRecipe extends Component {
   constructor(props) {
@@ -17,7 +17,8 @@ export default class addRecipe extends Component {
     this.state = {
       recipe_name: "",
       description: "",
-      img: ""
+      img: "",
+      alertfired: false
     };
     this.createRecipe = this.createRecipe.bind(this);
     this.updateRecipeName = this.updateRecipeName.bind(this);
@@ -36,8 +37,9 @@ export default class addRecipe extends Component {
   updateRecipeImg(val) {
     this.setState({ image_url: val });
   }
-  re;
+
   createRecipe() {
+    console.log("adding");
     axios
       .post("/api/addrecipe", {
         recipe_name: this.state.recipe_name,
@@ -45,12 +47,21 @@ export default class addRecipe extends Component {
         img: this.state.image_url
       })
       .then(res => {
-        console.log(res.data);
-        this.setState({
-          recipe_name: res.data,
-          description: res.data,
-          img: res.data
-        });
+        console.log("res.data");
+
+        this.setState(
+          {
+            recipe_name: res.data,
+            description: res.data,
+            img: res.data,
+            alertfired: true
+          },
+          () => {
+            this.props.history.push("/profile");
+          }
+        );
+        console.log("Added To Profile");
+        alert("Added to Profile");
       })
       .catch(err => console.log(err));
   }
@@ -70,7 +81,7 @@ export default class addRecipe extends Component {
     if (this.state.loggedIn) {
       return (
         <div>
-          <h1>Add New Favorite Recipe</h1>
+          <h2 className="addrecipe-title">Add New Recipe</h2>
           <div className="recipe-name">
             <h3>New Recipe:</h3>
             <textarea
@@ -80,7 +91,7 @@ export default class addRecipe extends Component {
           </div>
 
           <div className="recipe-description">
-            <h3>Recipe Description:</h3>
+            <h3 className="rec-desc-title">Recipe Description:</h3>
             <textarea
               className="rec-description"
               type="text"
@@ -89,7 +100,7 @@ export default class addRecipe extends Component {
           </div>
 
           <div className="recipe-img">
-            <h3>Recipe Image:</h3>
+            <h3 className="recimg">Recipe Image:</h3>
             <textarea
               type="text"
               onChange={e => this.updateRecipeImg(e.target.value)}
